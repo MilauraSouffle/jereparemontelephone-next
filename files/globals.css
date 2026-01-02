@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * DESIGN SYSTEM : "CLINICAL CYBER"
+ * JeRépareMonTelephone.fr
+ * Version: 3.0
+ */
+
+:root {
+  /* ============================================ */
+  /* SURFACES */
+  /* ============================================ */
+  --background: 0 0% 98%; /* #FAFAFA - Off-white mat */
+  --foreground: 222.2 84% 4.9%; /* Slate 900 */
+  
+  --card: 0 0% 100%; /* Pure white */
+  --card-foreground: 222.2 84% 4.9%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  
+  --muted: 210 40% 96.1%; /* Gray 100 */
+  --muted-foreground: 215.4 16.3% 46.9%; /* Gray 500 */
+
+  /* ============================================ */
+  /* ACCENTS - CYAN ÉLECTRIQUE */
+  /* ============================================ */
+  --primary: 183 100% 50%; /* #00F0FF - Cyan Électrique */
+  --primary-foreground: 222.2 84% 4.9%; /* Dark text on cyan */
+  
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  /* ============================================ */
+  /* ACCENT VIOLET (Mode Académie) */
+  /* ============================================ */
+  --violet: 270 100% 50%; /* #7000FF */
+  --violet-foreground: 0 0% 100%;
+  --violet-glow: 270 100% 50% / 0.3;
+
+  /* ============================================ */
+  /* SEMANTIC COLORS */
+  /* ============================================ */
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --success: 160 84% 39%; /* Emerald */
+  --success-foreground: 0 0% 100%;
+  
+  --warning: 38 92% 50%; /* Amber */
+  --warning-foreground: 0 0% 0%;
+
+  /* ============================================ */
+  /* BORDERS & RINGS */
+  /* ============================================ */
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 183 100% 50%; /* Cyan for focus */
+
+  /* ============================================ */
+  /* RADIUS */
+  /* ============================================ */
+  --radius: 0.75rem;
+
+  /* ============================================ */
+  /* SHADOWS & EFFECTS */
+  /* ============================================ */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Glow Effects */
+  --shadow-glow-cyan: 0 0 20px hsl(183 100% 50% / 0.3), 0 0 40px hsl(183 100% 50% / 0.1);
+  --shadow-glow-violet: 0 0 20px hsl(270 100% 50% / 0.3), 0 0 40px hsl(270 100% 50% / 0.1);
+
+  /* ============================================ */
+  /* SIDEBAR (si utilisé) */
+  /* ============================================ */
+  --sidebar: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 183 100% 50%;
+  --sidebar-primary-foreground: 0 0% 0%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 183 100% 50%;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 183 100% 50%;
+  --primary-foreground: 222.2 84% 4.9%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 183 100% 50%;
+  --sidebar: 240 5.9% 10%;
+  --sidebar-foreground: 240 4.8% 95.9%;
+  --sidebar-primary: 183 100% 50%;
+  --sidebar-primary-foreground: 0 0% 0%;
+  --sidebar-accent: 240 3.7% 15.9%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 240 3.7% 15.9%;
+  --sidebar-ring: 183 100% 50%;
+}
+
+/* ============================================ */
+/* BASE STYLES */
+/* ============================================ */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ============================================ */
+/* CUSTOM UTILITIES */
+/* ============================================ */
+@layer utilities {
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/40;
+  }
+  
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10;
+  }
+  
+  /* Glow Effects */
+  .glow-cyan {
+    box-shadow: var(--shadow-glow-cyan);
+  }
+  
+  .glow-violet {
+    box-shadow: var(--shadow-glow-violet);
+  }
+  
+  /* Text Gradient */
+  .text-gradient-cyan {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-500;
+  }
+  
+  .text-gradient-violet {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-purple-500;
+  }
+  
+  /* Hide scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Fade edges for marquee */
+  .fade-edges {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+}
+
+/* ============================================ */
+/* ANIMATIONS */
+/* ============================================ */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 30s linear infinite reverse;
+}
